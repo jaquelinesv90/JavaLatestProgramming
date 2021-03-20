@@ -8,6 +8,9 @@ public class HelloWorldLambda {
 			return "hello world lambda";
 		};
 		
+	//simplifying the above expression further	
+		HelloWorldInterface hw = () -> "Hello world lambda2";
+		
 		System.out.println(h.sayHelloWorld());
 	}
 
