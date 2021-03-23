@@ -17,7 +17,7 @@ public class RunnableExample {
 		};
 		new Thread(r).start();
 		
-		//Runnable lambda example
+		// lambda example
 		Runnable r1 = () -> {
 			int sum = 0;
 			for(int i = 0; i< 10; i++) {
@@ -27,5 +27,14 @@ public class RunnableExample {
 		};
 		
 		new Thread(r1).start();
+		
+		// Implement using Thread with Lambda
+		new Thread( () ->{
+			int sum = 0;
+			for(int i =0; i <10; i++) {
+				sum = sum + i;
+				System.out.println("Thread Lambda: " + sum);
+			}
+		}).start();
 	}
 }
