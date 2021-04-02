@@ -1,9 +1,31 @@
 package lambdaExpressions;
 
+import java.util.concurrent.Callable;
 import java.util.stream.IntStream;
 
 public class SumOfNumbersUsingCallable {
 	
-	public static int[] array = IntStream.range(arg0, arg1)
+	public static int[] array = IntStream.rangeClosed(0, 5000).toArray();
+	public static int total = IntStream.rangeClosed(0, 5000).sum();
+	
+	
+	public static void main(String[] args) {
+		Callable callable1 = () -> {
+			int sum = 0;
+			for(int i =0; i< array.length;i++) {
+				sum = sum + array[i];
+			}
+			return sum;
+		};
+		
+		Callable callable = () -> {
+			int sum = 0;
+			for(int i = array.length/2;i<array.length;i++) {
+				sum = sum + array[i];
+			}
+			return sum;
+		};
+		
+	}
 	
 }
