@@ -3,6 +3,7 @@ package lambdaExpressions;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -14,7 +15,7 @@ public class SumOfNumbersUsingCallable {
 	public static int total = IntStream.rangeClosed(0, 5000).sum();
 	
 	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		Callable callable1 = () -> {
 			int sum = 0;
 			for(int i =0; i< array.length;i++) {
@@ -38,6 +39,16 @@ public class SumOfNumbersUsingCallable {
 		
 		int k =0;
 		int sum =0;
+		for(Future<Integer> result: results) {
+			sum = sum + result.get();
+			System.out.println("Sum of:" + ++k +"is: " + result.get());
+		}
+		
+		System.out.println("Sum from the Callable is: "+ sum);
+		System.out.print("Correct sum from InStream is: "+ total);
+		executorService.shutdown();
+		
+		
 		
 	}
 	
