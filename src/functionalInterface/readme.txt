@@ -21,6 +21,10 @@ public interface MyFunctionalInterface{
 	}
 }
 
+
+- Annotate your functional interfaces with @FunctionalInterface.At first, this annotation seems to be useless.
+Even without it, your interface will be treated as functional as long as it has just one abstract method.
+
 Some of the useful java 8 functional interfaces are
 - Consumer - DoubleConsumer, IntConsumer, LongConsumer, BiConsumer
 - Supplier - IntPredicate, DoublePredicate and LongPredicate
