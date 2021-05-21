@@ -15,5 +15,4 @@ public class Instructors {
 		List<Instructor> list = Arrays.asList(instructor1,instructor2,instructor3,instructor4,instructor5);
 		return list;
 	}
-	
 }
